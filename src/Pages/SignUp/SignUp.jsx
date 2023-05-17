@@ -5,7 +5,7 @@ import { AuthContext } from '../../Providers/AuthProvider';
 
 const SignUp = () => {
 
-  const { createUser } = useContext(AuthContext);
+  const { createUser, googleSignIn } = useContext(AuthContext);
 
   const handleSignUp = event => {
     event.preventDefault();
@@ -24,6 +24,14 @@ const SignUp = () => {
       .catch(error => console.log(error))
 
 
+  }
+
+  const handleGoogleSignUp = () => {
+    googleSignIn()
+    .then(result => {
+      console.log(result.user);
+    })
+    .catch(error => console.log(error))
   }
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
@@ -88,7 +96,7 @@ const SignUp = () => {
         </div>
 
         <div className="mt-4">
-          <button
+          <button onClick={handleGoogleSignUp}
             type="button"
             className="w-full py-2 px-4 text-white bg-red-600 rounded-md hover:bg-red-700 focus:outline-none"
           >

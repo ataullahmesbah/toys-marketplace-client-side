@@ -5,7 +5,7 @@ import { AuthContext } from "../../Providers/AuthProvider";
 
 const Login = () => {
 
-    const {signIn} = useContext(AuthContext);
+    const { signIn, googleSignIn } = useContext(AuthContext);
 
     const handleLogIn = event => {
         event.preventDefault();
@@ -16,12 +16,20 @@ const Login = () => {
         console.log(email, password);
 
         signIn(email, password)
-        .then(result => {
-            const user = result.user;
-            console.log(user);
+            .then(result => {
+                const user = result.user;
+                console.log(user);
 
-        })
-        .catch(error => console.log(error))
+            })
+            .catch(error => console.log(error))
+    }
+
+    const handleGoogleSignIn = () => {
+        googleSignIn()
+            .then(result => {
+                console.log(result.user);
+            })
+            .catch(error => console.log(error))
     }
 
     return (
@@ -68,14 +76,14 @@ const Login = () => {
                     <hr className="w-full border-gray-300" />
                 </div>
                 <div className="mt-4">
-                    <button
+                    <button onClick={handleGoogleSignIn}
                         type="button"
                         className="w-full py-2 px-4 text-white bg-red-600 rounded-md hover:bg-red-700 focus:outline-none"
                     >
                         Sign in with Google
                     </button>
                 </div>
-                
+
             </div>
         </div>
     );
