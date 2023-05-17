@@ -1,11 +1,12 @@
 
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
 
 const SignUp = () => {
 
   const { createUser, googleSignIn } = useContext(AuthContext);
+  const [error, setError] = useState(null);
 
   const handleSignUp = event => {
     event.preventDefault();
@@ -15,6 +16,16 @@ const SignUp = () => {
     const password = form.password.value;
     const photo = form.photo.value;
     console.log(name, email, password, photo);
+    form.reset();
+
+    if(password.length < 6){
+      setError('Password added at least 6 characters long')
+      return;
+    }
+
+    if(email.is() === '' || password.is() === ''){
+      setError('Please Enter a valid email and password');
+    }
 
     createUser(email, password)
       .then(result => {
@@ -37,6 +48,13 @@ const SignUp = () => {
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
       <div className="max-w-md w-full px-6 py-8 bg-white rounded-lg shadow-md">
         <h2 className="text-2xl font-bold text-center text-gray-800">Sign Up</h2>
+
+        {error && (
+          <div className="bg-yellow-100 border border-gray-400 text-red-700 px-4 py-3 rounded relative mb-4 mt-4">
+            <h5 className='text-bold font-medium'>VALIDATION ERROR:</h5>
+            Password must be at least 6 characters long
+          </div>
+        )}
 
         <form onSubmit={handleSignUp} className="mt-8">
           <div>
