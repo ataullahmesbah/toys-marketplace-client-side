@@ -1,16 +1,41 @@
 
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Providers/AuthProvider';
 
 const SignUp = () => {
+
+  const { createUser } = useContext(AuthContext);
+
+  const handleSignUp = event => {
+    event.preventDefault();
+    const form = event.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    const photo = form.photo.value;
+    console.log(name, email, password, photo);
+
+    createUser(email, password)
+      .then(result => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch(error => console.log(error))
+
+
+  }
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
       <div className="max-w-md w-full px-6 py-8 bg-white rounded-lg shadow-md">
         <h2 className="text-2xl font-bold text-center text-gray-800">Sign Up</h2>
-        <form className="mt-8">
+
+        <form onSubmit={handleSignUp} className="mt-8">
           <div>
             <label htmlFor="name" className="text-gray-700">Name</label>
             <input
               type="text"
+              name='name'
               id="name"
               className="mt-2 w-full px-4 py-2 border border-blue-300 rounded-md focus:outline-none focus:border-blue-500"
               placeholder="Enter your name"
@@ -20,6 +45,7 @@ const SignUp = () => {
             <label htmlFor="email" className="text-gray-700">Email</label>
             <input
               type="email"
+              name='email'
               id="email"
               className="mt-2 w-full px-4 py-2 border border-green-300 rounded-md focus:outline-none focus:border-green-500"
               placeholder="Enter your email"
@@ -29,6 +55,7 @@ const SignUp = () => {
             <label htmlFor="password" className="text-gray-700">Password</label>
             <input
               type="password"
+              name='password'
               id="password"
               className="mt-2 w-full px-4 py-2 border border-purple-300 rounded-md focus:outline-none focus:border-purple-500"
               placeholder="Enter your password"
@@ -37,17 +64,19 @@ const SignUp = () => {
           <div className="mt-4">
             <label htmlFor="photo" className="text-gray-700">Photo</label>
             <input
-              type="file"
+              type="photo"
+              name='photo'
               id="photo"
-              className="mt-2 w-full px-4 py-2 border border-red-300 rounded-md focus:outline-none focus:border-red-500"
+              className="mt-2 w-full px-4 py-2 border border-blue-300 rounded-md focus:outline-none focus:border-blue-500"
             />
           </div>
           <div className="mt-6">
 
-          <input type="submit" className="w-full py-2 px-4 text-white bg-indigo-500 rounded-md hover:bg-indigo-600 focus:outline-none" value="Sign Up" />
-            
+            <input type="submit" className="w-full py-2 px-4 text-white bg-indigo-500 rounded-md hover:bg-indigo-600 focus:outline-none" value="Sign Up" />
+
           </div>
         </form>
+
         <div className="flex items-center justify-between mt-4 gap-2">
           <hr className="w-full border-gray-300" />
           <span className="text-gray-500 ">or</span>
@@ -66,7 +95,7 @@ const SignUp = () => {
             Sign in with Google
           </button>
         </div>
-        
+
       </div>
     </div>
   );
