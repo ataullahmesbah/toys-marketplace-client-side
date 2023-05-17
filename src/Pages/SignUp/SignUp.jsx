@@ -66,14 +66,7 @@ const SignUp = () => {
             Sign in with Google
           </button>
         </div>
-        <div className="mt-2">
-          <button
-            type="button"
-            className="w-full py-2 px-4 text-white bg-gray-800 rounded-md hover:bg-gray-900 focus:outline-none"
-          >
-            Sign in with GitHub
-          </button>
-        </div>
+        
       </div>
     </div>
   );
