@@ -1,5 +1,6 @@
 import { useState } from "react";
 import logo from '../../../Images/Dreamy Daze Toys.png';
+import { Link } from "react-router-dom";
 
 
 const Navbar = () => {
@@ -12,22 +13,22 @@ const Navbar = () => {
   return (
     <nav className="flex items-center justify-between px-4 py-3 bg-white shadow-black mb-10">
       <div className="flex items-center">
-        <img src={logo} alt="" />
+        <Link to='/'><img src={logo} alt="" /></Link>
       </div>
 
       <div className="hidden md:flex md:items-center md:ml-4 gap-4">
-        <a href="#" className="text-gray-800 font-bold px-3 py-2 rounded-md hover:bg-gray-700">
-          Home
-        </a>
+        
+
+        <Link to='/' className="text-gray-800 font-bold px-3 py-2 rounded-md hover:bg-gray-700">
+            Home</Link>
+
         <a href="#" className="text-gray-800 font-bold px-3 py-2 rounded-md hover:bg-gray-700">
           About
         </a>
-        <a href="#" className="text-gray-800 font-bold px-3 py-2 rounded-md hover:bg-gray-700">
-          Blog
-        </a>
-        <a href="#" className="text-gray-800 font-bold px-3 py-2 rounded-md hover:bg-gray-700">
-          Login
-        </a>
+        <Link to='/blog' className="text-gray-800 font-bold px-3 py-2 rounded-md hover:bg-gray-700">Blog</Link>
+        
+        <Link to='/login' className="text-gray-800 font-bold px-3 py-2 rounded-md hover:bg-gray-700">Login</Link>
+
       </div>
 
       <div className="md:hidden">
@@ -54,18 +55,17 @@ const Navbar = () => {
 
       {isMenuOpen && (
         <div className="md:hidden absolute top-12 right-0 z-10 bg-gray-800 w-48 mt-2 py-2 px-4 rounded">
-          <a href="#" className="block font-bold text-gray-800 py-2 hover:bg-gray-700">
-            Home
-          </a>
-          <a href="#" className="block font-bold text-gray-800 py-2 hover:bg-gray-700">
+          <Link to='/' className="block font-bold text-white py-2 hover:bg-gray-700">
+            Home</Link>
+          <a href="#" className="block font-bold text-white py-2 hover:bg-gray-700">
             About
           </a>
-          <a href="#" className="block font-bold text-gray-800 py-2 hover:bg-gray-700">
+          <Link to='blog' className="block font-bold text-white py-2 hover:bg-gray-700">
             Blog
-          </a>
-          <a href="#" className="block font-bold text-gray-800 py-2 hover:bg-gray-700">
-            Login
-          </a>
+          </Link>
+
+          
+          <Link to='/login' className="block font-bold text-white py-2 hover:bg-gray-700">Login</Link>
         </div>
       )}
     </nav>
