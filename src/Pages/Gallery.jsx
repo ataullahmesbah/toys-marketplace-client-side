@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
+
 
 
 const Gallery = () => {
@@ -25,7 +26,7 @@ const Gallery = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 m-10">
         {toys.map((toy, index) => (
           <div key={index} className="relative">
-            <img src={toy.image} alt={`Image ${index + 1}`} className="w-full h-64 rounded-lg overflow-hidden shadow-lg" />
+            <img src={toy.image} alt={`Image ${index + 1}`} className="w-full h-64 lg:h-72 rounded-lg overflow-hidden shadow-lg" />
             <div className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300 bg-gray-900 bg-opacity-75 text-white text-center">
               <p className="text-lg font-semibold">{toy.name}</p>
             </div>

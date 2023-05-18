@@ -1,95 +1,64 @@
-import React, { useState } from 'react';
 
-const Toys = () => {
-  const [activeTab, setActiveTab] = useState(0);
+import { useEffect, useState } from 'react';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import 'react-tabs/style/react-tabs.css';
+import ToysShops from '../ToysShops/ToysShops';
 
-  const categories = [
-    {
-      name: 'Math Toys',
-      toys: [
-        {
-          picture: 'https://i.ibb.co/bNX92J0/parts.jpg',
-          name: 'Math Toy 1',
-          price: 9.99,
-          rating: 4.5
-        },
-        {
-          picture: 'https://i.ibb.co/bNX92J0/parts.jpg',
-          name: 'Math Toy 2',
-          price: 12.99,
-          rating: 4.2
-        }
-      ]
-    },
-    {
-      name: 'Language Toys',
-      toys: [
-        {
-          picture: 'https://i.ibb.co/bNX92J0/parts.jpg',
-          name: 'Language Toy 1',
-          price: 14.99,
-          rating: 4.7
-        },
-        {
-          picture: 'https://i.ibb.co/bNX92J0/parts.jpg',
-          name: 'Language Toy 2',
-          price: 11.99,
-          rating: 4.4
-        }
-      ]
-    },
-    {
-      name: 'Engineering Toys',
-      toys: [
-        {
-          picture: 'https://i.ibb.co/bNX92J0/parts.jpg',
-          name: 'Engineering Toy 1',
-          price: 19.99,
-          rating: 4.8
-        },
-        {
-          picture: 'https://i.ibb.co/bNX92J0/parts.jpg',
-          name: 'Engineering Toy 2',
-          price: 16.99,
-          rating: 4.6
-        }
-      ]
-    }
-  ];
+const ToysShop = () => {
+    const [activeTab, setActiveTab] = useState(0);
+    const [toys, setToys] = useState([]);
+    // console.log(toys);
 
-  const handleTabChange = (index) => {
-    setActiveTab(index);
-  };
+    useEffect(() => {
+        fetch('http://localhost:5000/toysshop')
+            .then((res) => res.json())
+            .then((data) => setToys(data));
+    }, []);
 
-  return (
-    <div className="shop-by-category">
-      <div className="tabs">
-        {categories.map((category, index) => (
-          <button
-            key={index}
-            className={`tab ${activeTab === index ? 'active' : ''}`}
-            onClick={() => handleTabChange(index)}
-          >
-            {category.name}
-          </button>
-        ))}
-      </div>
+    const handleTabChange = (index) => {
+        setActiveTab(index);
+    };
 
-      <div className="toys">
-        {categories[activeTab].toys.map((toy, index) => (
-          <div key={index} className="toy">
-            <img src={toy.picture} alt={toy.name} className="toy-image" />
-            <div className="toy-details">
-              <h3 className="toy-name">{toy.name}</h3>
-              <p className="toy-price">${toy.price}</p>
-              <p className="toy-rating">Rating: {toy.rating}</p>
-              <button className="view-details-button">View Details</button>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
+    return (
+        <div className="mt-20 mb-10">
+
+<h1 className="text-4xl font-bold text-gray-700 text-center mb-4">Welcome to the Animal Toys Shop</h1>
+      <p className="text-lg font-medium text-center text-gray-600 pb-14 p-5">
+        Discover a wide range of adorable and playful animal toys. From cuddly plushies to interactive figures, <br /> we offer the perfect companions for your little ones. Click on <span className='font-bold text-gray-700'>View Details</span> <br /> to learn more about each animal toy and
+        choose your favorites.
+      </p>
+
+            <Tabs selectedIndex={activeTab} onSelect={handleTabChange}>
+                
+
+                <div className="font-bold text-center text-xl">
+                    <TabList>
+                        {toys.map((category, index) => (
+                            <Tab key={index}>{category.name}</Tab>
+                        ))}
+                    </TabList>
+                </div>
+
+                {toys.map((category, index) => (
+                    <TabPanel key={index}>
+
+
+                        <div className=" bg-white rounded-lg shadow-lg p-8 h-full grid lg:grid-cols-2 mt-10 justify-center  items-center ">
+                            {category.toys.map((toy, toyIndex) => <ToysShops
+
+                                key={toyIndex}
+                                toy={toy}
+                            ></ToysShops>
+
+                            )}
+
+                        </div>
+
+                    </TabPanel>
+                ))}
+            </Tabs>
+        </div>
+    );
 };
 
-export default Toys;
+export default ToysShop;

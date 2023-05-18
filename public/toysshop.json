@@ -1,0 +1,72 @@
+[
+      {
+        "name": "Teddy Bear",
+        "toys": [
+          {
+            "name": "Honey Bear",
+            "price": 23.61,
+            "rating": 4.2,
+            "image": "https://i.ibb.co/Jk9Wgwk/s-l300.jpg"
+          },
+          {
+            "name": "Snuggle Bear",
+            "price": 14.59,
+            "rating": 3.8,
+            "image": "https://i.ibb.co/610L9qJ/s-bear.png"
+          }
+        ]
+      },
+      {
+        "name": "Horse",
+        "toys": [
+          {
+            "name": "Secretariat Horse",
+            "price": 24.99,
+            "rating": 4.2,
+            "image": "https://i.ibb.co/0hjYZ4v/str.jpg"
+          },
+          {
+            "name": "Horse Andalusian",
+            "price": 16.06,
+            "rating": 4.0,
+            "image": "https://i.ibb.co/99JnLzk/88464.jpg"
+          }
+        ]
+      },
+      {
+        "name": "Cat",
+        "toys": [
+          {
+            "name": "Whiskers Cat",
+            "price": 59.55,
+            "rating": 4.7,
+            "image": "https://i.ibb.co/tMy3vvX/c1222.jpg"
+          },
+          {
+            "name": "Oliver Cat",
+            "price": 37.19,
+            "rating": 4.1,
+            "image": "https://i.ibb.co/QvKCytp/700.jpg"
+          }
+        ]
+      },
+      {
+        "name": "Dinosaur",
+        "toys": [
+          {
+            "name": "Triceratops Dinosaur",
+            "price": 44.29,
+            "rating": 4.9,
+            "image": "https://i.ibb.co/zJGrKX2/1200.png"
+          },
+          {
+            "name": "Brachiosaurus",
+            "price": 67.00,
+            "rating": 3.8,
+            "image": "https://i.ibb.co/fGNYxCk/1645096696-7337.jpg"
+          }
+        ]
+      }
+    ]
+
+  
