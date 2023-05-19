@@ -10,12 +10,12 @@ const Banner = () => {
     <div className="absolute flex rounded-xl items-center h-full left-0 top-0 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)]">
 
 <div className='text-white space-y-7 pl-20 w-1/2'>
-    <h2 className='text-6xl font-bold'>Affordable Price For Car Servicing</h2>
-    <p>There are many variations of passages of  available, but the majority have suffered alteration in some form</p>
+    <h2 className='text-6xl font-bold'>Embark on a Safari of Playful Animal Toys</h2>
+    <p>Create memorable moments of laughter and learning with our range of lovable animal toys</p>
     <div className="flex gap-2">
 
-        <button className="btn btn-error">Discover More</button>
-        <button className="btn btn-outline btn-accent">Latest Project</button>
+        <button className="btn btn-outline btn-secondary">Browse Our Toys</button>
+        <button className="btn btn-outline btn-accent">Join Our Community</button>
     </div>
 </div>
 

@@ -1,10 +1,20 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import logo from '../../../Images/Dreamy Daze Toys.png';
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../Providers/AuthProvider";
 
 
 const Navbar = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
+  const {user, logOut} = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut()
+    .then(() => {
+
+    })
+    .catch(error => console.log(error))
+  }
 
   const handleMenuToggle = () => {
     setMenuOpen(!isMenuOpen);
@@ -27,7 +37,19 @@ const Navbar = () => {
         </a>
         <Link to='/blog' className="text-gray-800 font-bold px-3 py-2 rounded-md hover:bg-gray-700">Blog</Link>
         
-        <Link to='/login' className="text-gray-800 font-bold px-3 py-2 rounded-md hover:bg-gray-700">Login</Link>
+        {/* <Link to='/login' className="text-gray-800 font-bold px-3 py-2 rounded-md hover:bg-gray-700">Login</Link> */}
+
+
+        { user?.email ? <>
+        
+        <Link className="font-bold" to='/mytoys'>My Toys</Link>
+        <button className="font-bold" onClick={handleLogOut}>Log Out</button> 
+
+    </>
+        :
+        
+        <Link className="font-bold" to='/login'>Login</Link>
+       }
 
       </div>
 
