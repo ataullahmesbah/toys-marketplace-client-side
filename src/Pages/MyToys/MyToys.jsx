@@ -55,10 +55,15 @@ const MyToys = () => {
 
     return (
         <div>
-            <h3 className='text-4xl font-bold text-center text-gray-600 m-10'>My Toys</h3>
+           
+
+           
+            <h2 className="text-yellow-500 text-center text-2xl font-semibold mb-10 bg-gray-800 p-4 rounded-lg shadow-md w-2/3 mx-auto">My Themed Toys: Explore Our Collection of Fun and Playful Animal Toys</h2>
+           
+
 
             <table className="table w-full">
-                    {/* head */}
+                    
                     <thead>
                         <tr>
                             

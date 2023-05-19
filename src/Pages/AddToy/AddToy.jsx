@@ -49,9 +49,12 @@ const AddToy = () => {
 
   }
   return (
-    <div className="bg-gray-200 p-20 rounded-lg">
+    <div className="bg-gray-200 p-16 rounded-lg">
 
-      <h1 className="font-bold text-4xl m-10 text-center text-orange-500">Add Toys and Fillup this Form</h1>
+<h2 className="text-3xl font-bold text-center text-blue-600 mb-8 shadow-2xl rounded-lg p-5">Add New Toys: Expand Your Collection with Exciting Additions</h2>
+
+
+
 
       <form onSubmit={handleAddToys}>
         {/* Toy name and photo url */}
