@@ -32,9 +32,9 @@ const Navbar = () => {
         <Link to='/' className="text-gray-800 font-bold px-3 py-2 rounded-md hover:bg-gray-700">
           Home</Link>
 
-        <a href="#" className="text-gray-800 font-bold px-3 py-2 rounded-md hover:bg-gray-700">
+        <Link to='/aboutus' className="text-gray-800 font-bold px-3 py-2 rounded-md hover:bg-gray-700">
           About
-        </a>
+        </Link>
         <Link to='/blog' className="text-gray-800 font-bold px-3 py-2 rounded-md hover:bg-gray-700">Blog</Link>
 
         {/* <Link to='/login' className="text-gray-800 font-bold px-3 py-2 rounded-md hover:bg-gray-700">Login</Link> */}
