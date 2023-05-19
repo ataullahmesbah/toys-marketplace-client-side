@@ -1,5 +1,6 @@
 
 import { FaTrashAlt, FaUserCircle, FaImages } from 'react-icons/fa';
+import { Link } from "react-router-dom";
 
 
 
@@ -23,7 +24,12 @@ const MyToysDetails = ({ toys, handleDelete }) => {
             <td>{price}</td>
             <td>{quantity}</td>
             
-            <th><button className="btn btn-sm btn-outline btn-accent">Update</button></th>
+            <th>
+               <Link to={`/updatetoy/${_id}`}>
+               <button className="btn btn-sm btn-outline btn-accent">Update</button>
+               </Link>
+                </th>
+                
 
             <td><span onClick={() => handleDelete(_id)} className='text-3xl text-red-600 '><FaTrashAlt /></span></td>
         </tr>
