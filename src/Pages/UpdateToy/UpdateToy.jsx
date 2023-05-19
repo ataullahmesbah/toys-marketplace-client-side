@@ -15,6 +15,7 @@ const UpdateToy = () => {
         const quantity = form.quantity.value;
         const price = form.price.value;
         const details = form.details.value;
+        form.reset();
     
         const updateToys = {
           name, photo, quantity, price, details

@@ -19,6 +19,7 @@ const AddToy = () => {
     const price = form.price.value;
     const rating = form.rating.value;
     const details = form.details.value;
+    form.reset();
 
     const addToys = {
       name, photo, seller, email, category, quantity, price, rating, details
