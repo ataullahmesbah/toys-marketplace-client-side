@@ -23,9 +23,7 @@ const SignUp = () => {
       return;
     }
 
-    if(email.is() === '' || password.is() === ''){
-      setError('Please Enter a valid email and password');
-    }
+    
 
     createUser(email, password)
       .then(result => {

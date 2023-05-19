@@ -1,6 +1,9 @@
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 
 const AddToy = () => {
+  const {user} = useContext(AuthContext);
     return (
         <div>
 
@@ -45,6 +48,7 @@ const AddToy = () => {
       </label>
       <input
         type="text"
+        defaultValue={user?.name}
         name="seller"
         placeholder="Seller Name"
         className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
@@ -52,12 +56,13 @@ const AddToy = () => {
     </div>
     <div className="w-full md:w-1/2 px-3">
       <label className="block text-sm font-medium text-gray-700">
-        Taste
+        Seller Email
       </label>
       <input
         type="text"
-        name="taste"
-        placeholder="Taste"
+        name="email"
+        defaultValue={user?.email}
+        placeholder="Seller Email"
         className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
       />
     </div>
@@ -101,7 +106,7 @@ const AddToy = () => {
       />     
                 </div>
 
-                <input type="submit" value="Add Coffee" className="btn btn-block bg-[#D2B48C]" />
+                <input type="submit" value="Add Toys" className="btn btn-block bg-[#D2B48C]" />
 
 
             </form>

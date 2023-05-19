@@ -6,14 +6,14 @@ import { AuthContext } from "../../../Providers/AuthProvider";
 
 const Navbar = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
-  const {user, logOut} = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
 
   const handleLogOut = () => {
     logOut()
-    .then(() => {
+      .then(() => {
 
-    })
-    .catch(error => console.log(error))
+      })
+      .catch(error => console.log(error))
   }
 
   const handleMenuToggle = () => {
@@ -27,29 +27,42 @@ const Navbar = () => {
       </div>
 
       <div className="hidden md:flex md:items-center md:ml-4 gap-4">
-        
+
 
         <Link to='/' className="text-gray-800 font-bold px-3 py-2 rounded-md hover:bg-gray-700">
-            Home</Link>
+          Home</Link>
 
         <a href="#" className="text-gray-800 font-bold px-3 py-2 rounded-md hover:bg-gray-700">
           About
         </a>
         <Link to='/blog' className="text-gray-800 font-bold px-3 py-2 rounded-md hover:bg-gray-700">Blog</Link>
-        
+
         {/* <Link to='/login' className="text-gray-800 font-bold px-3 py-2 rounded-md hover:bg-gray-700">Login</Link> */}
 
 
-        { user?.email ? <>
-        
-        <Link className="font-bold" to='/mytoys'>My Toys</Link>
-        <button className="font-bold" onClick={handleLogOut}>Log Out</button> 
+        {user?.email ? (
+          <>
+            <Link className="font-bold" to="/mytoys">My Toys</Link>
 
-    </>
-        :
-        
-        <Link className="font-bold" to='/login'>Login</Link>
-       }
+            {user?.photoURL ? (
+              <div>
+                <img className="w-12 rounded-full" src={user.photoURL} alt="" />
+              </div>
+            ) : (
+              <div>
+                <img className="w-12 rounded-full" src="/default-profile-image.jpg" alt="Default Profile" />
+              </div>
+            )}
+
+            <button className="font-bold" onClick={handleLogOut}>Log Out</button>
+          </>
+        ) : (
+          <Link className="font-bold" to="/login">Login</Link>
+        )}
+
+
+
+
 
       </div>
 
@@ -86,7 +99,7 @@ const Navbar = () => {
             Blog
           </Link>
 
-          
+
           <Link to='/login' className="block font-bold text-white py-2 hover:bg-gray-700">Login</Link>
         </div>
       )}
