@@ -17,15 +17,8 @@ const MyToys = () => {
     }, [])
 
     const handleDelete = id => {
-        const proceedDel = confirm;
-        if(proceedDel){
-            fetch(`http://localhost:5000/addtoys/${id}`, {
-                method: 'DELETE',
-            })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                if(data.deletedCount > 0 ){
+        
+        
                     Swal.fire({
                         title: 'Are you sure?',
                         text: "You won't be able to delete this!",
@@ -36,6 +29,16 @@ const MyToys = () => {
                         confirmButtonText: 'Yes, delete it!'
                       }).then((result) => {
                         if (result.isConfirmed) {
+                        
+                            fetch(`http://localhost:5000/addtoys/${id}`, {
+                                method: 'DELETE',
+                            })
+                            .then(res => res.json())
+                            .then(data => {
+                                console.log(data);
+                                if(data.deletedCount > 0 ){
+                        
+                        
                           Swal.fire(
                             'Deleted!',
                             'Your file has been deleted.',
@@ -48,7 +51,7 @@ const MyToys = () => {
                 }
             })
         }
-    }
+    
 
     return (
         <div>
