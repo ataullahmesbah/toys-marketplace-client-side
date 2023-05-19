@@ -43,6 +43,7 @@ const Navbar = () => {
         {user?.email ? (
           <>
             <Link className="font-bold" to="/mytoys">My Toys</Link> 
+            <Link className="font-bold" to="/alltoys">All Toys</Link> 
             
             <Link className="font-bold" to="/addtoy">Add Toys</Link>
 
