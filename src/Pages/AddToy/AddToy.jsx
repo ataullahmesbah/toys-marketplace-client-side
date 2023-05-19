@@ -8,44 +8,44 @@ const AddToy = () => {
 
   const handleAddToys = event => {
     event.preventDefault();
-            const form = event.target;
+    const form = event.target;
 
-            const name = form.name.value;
-            const photo = form.photo.value;
-            const seller = form.seller.value;
-            const email = form.email.value;
-            const category = form.category.value;
-            const quantity = form.quantity.value;
-            const price = form.price.value;
-            const rating = form.rating.value;
-            const details = form.details.value;
+    const name = form.name.value;
+    const photo = form.photo.value;
+    const seller = form.seller.value;
+    const email = user?.email;
+    const category = form.category.value;
+    const quantity = form.quantity.value;
+    const price = form.price.value;
+    const rating = form.rating.value;
+    const details = form.details.value;
 
-            const addToys = {
-              name, photo, seller, email, category, quantity, price, rating, details
-            }
-            console.log(addToys);
+    const addToys = {
+      name, photo, seller, email, category, quantity, price, rating, details
+    }
+    console.log(addToys);
 
-            // send to data server
-            fetch('http://localhost:5000/addtoys', {
-              method: 'POST',
-              headers: {
-                'content-type': 'application/json'
-              },
-              body: JSON.stringify(addToys)
-            })
-            .then(res => res.json())
-            .then(data => {
-              console.log(data);
-              if(data.insertedId){
-                Swal.fire({
-                  title: 'Success!',
-                  text: 'Add Toys added Successfully',
-                  icon: 'Success',
-                  confirmButtonText: 'Confirm'
-                })
-              }
-            })
-            
+    // send to data server
+    fetch('http://localhost:5000/addtoys', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(addToys)
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        if (data.insertedId) {
+          Swal.fire({
+            title: 'Success!',
+            text: 'Add Toys added Successfully',
+            icon: 'Success',
+            confirmButtonText: 'Confirm'
+          })
+        }
+      })
+
   }
   return (
     <div className="bg-gray-200 p-20 rounded-lg">
