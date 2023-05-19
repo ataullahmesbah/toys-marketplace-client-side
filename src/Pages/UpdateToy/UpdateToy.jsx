@@ -4,7 +4,7 @@ import Swal from 'sweetalert2';
 const UpdateToy = () => {
     const updateToys = useLoaderData();
 
-    const { _id, email, photo, name, seller, price, quantity } = updateToys;
+    const { _id, photo, name, price, quantity } = updateToys;
 
     const handleUpdateToys = event => {
         event.preventDefault();
@@ -32,7 +32,7 @@ const UpdateToy = () => {
           .then(res => res.json())
           .then(data => {
             console.log(data);
-            if (data.insertedId) {
+            if (data.modifiedCount > 0) {
               Swal.fire({
                 title: 'Success!',
                 text: 'Toys Updated Successfully',
