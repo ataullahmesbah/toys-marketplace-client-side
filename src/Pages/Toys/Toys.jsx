@@ -7,7 +7,7 @@ import ToysShops from '../ToysShops/ToysShops';
 const ToysShop = () => {
     const [activeTab, setActiveTab] = useState(0);
     const [toys, setToys] = useState([]);
-    // console.log(toys);
+    console.log(toys);
 
     useEffect(() => {
         fetch('http://localhost:5000/toysshop')
