@@ -12,12 +12,14 @@ import MyToys from "../Pages/MyToys/MyToys";
 import AboutUs from "../Pages/AboutUs/AboutUs";
 import AllToys from "../Pages/AllToys/AllToys";
 import AllToysInformation from "../Pages/AllToysInformation/AllToysInformation";
+import ErrorPage from "../Pages/ErrorPage";
 
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: <Main></Main>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: '/',
