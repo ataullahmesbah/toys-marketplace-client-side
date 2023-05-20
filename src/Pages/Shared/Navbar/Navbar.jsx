@@ -58,7 +58,7 @@ const Navbar = () => {
               </div>
             )}
 
-            <button className="font-bold" onClick={handleLogOut}>Log Out</button>
+            <Link to='/'><button className="font-bold" onClick={handleLogOut}>Log Out</button></Link>
           </>
         ) : (
           <Link className="font-bold" to="/login">Login</Link>
@@ -93,18 +93,42 @@ const Navbar = () => {
       </div>
 
       {isMenuOpen && (
-        <div className="md:hidden absolute top-12 right-0 z-10 bg-gray-800 w-48 mt-2 py-2 px-4 rounded">
+        <div className="md:hidden absolute top-12 right-0 z-10 bg-gray-800 w-48 mt-2 py-2 px-4 rounded h-96">
           <Link to='/' className="block font-bold text-white py-2 hover:bg-gray-700">
             Home</Link>
-          <a href="#" className="block font-bold text-white py-2 hover:bg-gray-700">
+          <Link to='/aboutus' className="block font-bold text-white py-2 hover:bg-gray-700">
             About
-          </a>
+          </Link>
           <Link to='blog' className="block font-bold text-white py-2 hover:bg-gray-700">
             Blog
           </Link>
 
 
-          <Link to='/login' className="block font-bold text-white py-2 hover:bg-gray-700">Login</Link>
+          {user?.email ? (
+          <>
+            <Link className="block font-bold text-white py-2 hover:bg-gray-700" to="/mytoys">My Toys</Link> 
+            
+            <Link className="block font-bold text-white py-2 hover:bg-gray-700" to="/alltoys">All Toys</Link> 
+            
+            <Link className="block font-bold text-white py-2 hover:bg-gray-700" to="/addtoy">Add Toys</Link>
+
+            {user?.photoURL ? (
+              <div>
+                <img className="w-12 rounded-full" src={user.photoURL} alt="" />
+              </div>
+            ) : (
+              <div>
+                <img className="w-12 rounded-full" src="/default-profile-image.jpg" alt="Default Profile" />
+              </div>
+            )}
+
+            <Link to='/'><button className="block font-bold text-white py-2 hover:bg-gray-700" onClick={handleLogOut}>Log Out</button></Link>
+          </>
+        ) : (
+          <Link className="block font-bold text-white py-2 hover:bg-gray-700" to="/login">Login</Link>
+        )}
+
+
         </div>
       )}
     </nav>
