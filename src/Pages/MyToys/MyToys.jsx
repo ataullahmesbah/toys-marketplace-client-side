@@ -2,6 +2,8 @@ import { useContext, useEffect, useState } from 'react';
 import Swal from 'sweetalert2'
 import { AuthContext } from '../../Providers/AuthProvider';
 import MyToysDetails from '../MyToysDetails/MyToysDetails';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const MyToys = () => {
     // const myToys = useLoaderData();
@@ -9,6 +11,16 @@ const MyToys = () => {
     const [myToys, setMyToys] = useState([]);
 
     const url = `http://localhost:5000/addtoys?email=${user?.email}`;
+
+
+    useEffect(() => {
+        AOS.init({
+          duration: 800,
+          offset: 200,
+          easing: 'ease-in-out',
+          once: true
+        });
+      }, []);
        
     useEffect(() => {
         fetch(url)
@@ -54,13 +66,9 @@ const MyToys = () => {
     
 
     return (
-        <div>
+        <div data-aos="zoom-in">
            
-
-           
-            <h2 className="text-yellow-500 text-center text-2xl font-semibold mb-10 bg-gray-800 p-4 rounded-lg shadow-md w-2/3 mx-auto">My Themed Toys: Explore Our Collection of Fun and Playful Animal Toys</h2>
-           
-
+<h2 className="text-yellow-500 text-center text-2xl font-semibold mb-10 bg-gray-800 p-4 rounded-lg shadow-md w-2/3 mx-auto">My Themed Toys: Explore Our Collection of Fun and Playful Animal Toys</h2>
 
             <table className="table w-full">
                     

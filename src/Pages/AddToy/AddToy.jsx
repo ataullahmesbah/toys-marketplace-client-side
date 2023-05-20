@@ -1,10 +1,22 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from 'sweetalert2'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 
 
 const AddToy = () => {
   const { user } = useContext(AuthContext);
+
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      offset: 200,
+      easing: 'ease-in-out',
+      once: true
+    });
+  }, []);
 
   const handleAddToys = event => {
     event.preventDefault();
@@ -49,7 +61,7 @@ const AddToy = () => {
 
   }
   return (
-    <div className="bg-gray-200 p-16 rounded-lg">
+    <div className="bg-gray-200 p-16 rounded-lg" data-aos="zoom-in">
 
 <h2 className="text-3xl font-bold text-center text-blue-600 mb-8 shadow-2xl rounded-lg p-5">Add New Toys: Expand Your Collection with Exciting Additions</h2>
 
