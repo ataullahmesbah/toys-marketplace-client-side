@@ -1,9 +1,20 @@
 import { useEffect, useState } from "react";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 
 const Gallery = () => {
   const [toys, setToys] = useState([]);
+
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      offset: 200,
+      easing: 'ease-in-out',
+      once: true
+    });
+  }, []);
 
   useEffect(() => {
     fetch('gallery.json')
@@ -12,7 +23,7 @@ const Gallery = () => {
       .catch((error) => console.error('Error fetching toys data:', error));
   }, [])
   return (
-    <div className='mt-10 mb-10'>
+    <div className='mt-10 mb-10' data-aos="fade-up">
       <h1 className="text-4xl font-bold text-center mb-4">Welcome to the Dreamy Daze <br /> Toys Gallery</h1>
       <p className="text-sm p-5 text-center text-gray-700">
         Explore our wide collection of adorable and playful animal toys. Our gallery showcases a diverse range of

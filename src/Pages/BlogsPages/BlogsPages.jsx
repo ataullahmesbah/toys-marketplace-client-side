@@ -1,8 +1,19 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 const BlogsPages = () => {
+
+    useEffect(() => {
+        AOS.init({
+            duration: 800,
+            offset: 200,
+            easing: 'ease-in-out',
+            once: true
+        });
+    }, []);
 
     const [blog, setBlog] = useState([]);
     useEffect(() => {
@@ -12,7 +23,7 @@ const BlogsPages = () => {
             .catch(error => console.log(error));
     }, [])
     return (
-        <div className="">
+        <div className="" data-aos="zoom-in">
             <h2 className="text-4xl font-bold mb-6 text-center text-orange-600 pt-10">Our Latest Blogs</h2>
             <p className="text-center text-gray-700 font-serif mb-10">Discover a World of Joy: Explore Our Delightful Collection of Animal Toys. <br /> Immerse yourself in a world of wonder and delight with our captivating <br /> collection of animal toys.</p>
 

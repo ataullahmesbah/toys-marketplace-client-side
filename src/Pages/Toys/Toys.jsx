@@ -3,11 +3,22 @@ import { useEffect, useState } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import ToysShops from '../ToysShops/ToysShops';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const ToysShop = () => {
     const [activeTab, setActiveTab] = useState(0);
     const [toys, setToys] = useState([]);
     console.log(toys);
+
+    useEffect(() => {
+        AOS.init({
+          duration: 800,
+          offset: 200,
+          easing: 'ease-in-out',
+          once: true
+        });
+      }, []);
 
     useEffect(() => {
         fetch('http://localhost:5000/toysshop')
@@ -20,7 +31,7 @@ const ToysShop = () => {
     };
 
     return (
-        <div className="mt-20 mb-10">
+        <div className="mt-20 mb-10" data-aos="zoom-in">
 
 <h1 className="text-4xl font-bold text-gray-700 text-center mb-4">Welcome to the Animal Toys Shop</h1>
       <p className="text-lg font-medium text-center text-gray-600 pb-14 p-5">
