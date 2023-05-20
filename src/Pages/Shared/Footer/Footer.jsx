@@ -1,4 +1,4 @@
-import logo from '../../../Images/Dreamy Daze Toys.png'
+import logo from '../../../Images/banner/logo toys.png'
 import { FaFacebook, FaYoutube, FaTwitter  } from 'react-icons/fa';
 
 const Footer = () => {
@@ -6,7 +6,7 @@ const Footer = () => {
 
         <footer className="footer p-10 bg-base-300 text-base-content mt-10">
             <div>
-                <img className='rounded-lg' src={logo} alt="" />
+                <img className='w-48' src={logo} alt="" />
                 <p>ACME Industries Ltd.<br />Providing reliable tech since 1992</p>
             </div>
             <div>

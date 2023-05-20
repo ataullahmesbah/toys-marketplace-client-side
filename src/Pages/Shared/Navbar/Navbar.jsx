@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
-import logo from '../../../Images/Dreamy Daze Toys.png';
+
+import logo from '../../../Images/banner/logo toys.png';
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProvider";
 
@@ -23,7 +24,7 @@ const Navbar = () => {
   return (
     <nav className="flex items-center justify-between px-4 py-3 bg-white shadow-black mb-10">
       <div className="flex items-center">
-        <Link to='/'><img src={logo} alt="" /></Link>
+        <Link to='/'><img className="w-48" src={logo} alt="" /></Link>
       </div>
 
       <div className="hidden md:flex md:items-center md:ml-4 gap-4">
