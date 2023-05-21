@@ -11,7 +11,7 @@ const AllToys = () => {
     useEffect(() => {
         fetch('https://assignment-11-server-side-gray.vercel.app/addtoys')
             .then(res => res.json())
-            .then(data => setAllToys(data));
+            .then(data => setAllToys(data.slice(0, 20)));
     }, [])
 
     const handleSearch = () => {

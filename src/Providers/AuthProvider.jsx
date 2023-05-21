@@ -22,9 +22,12 @@ const AuthProvider = ({children}) => {
         return signInWithPopup(auth, googleProvider);
     }
 
-    const createUser = (email, password) => {
+    const createUser = (email, password, photoURL) => {
         setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            setUser({ ...userCredential.user, photoURL }); // Update user state with photoURL
+          });
     }
 
     const logOut = () => {

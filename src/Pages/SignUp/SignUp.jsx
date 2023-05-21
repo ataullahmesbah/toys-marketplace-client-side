@@ -16,8 +16,8 @@ const SignUp = () => {
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
-    const photo = form.photo.value;
-    console.log(name, email, password, photo);
+    const photoURL = form.photo.value;
+    console.log(name, email, password, photoURL);
     form.reset();
 
     if(password.length < 6){
@@ -27,7 +27,7 @@ const SignUp = () => {
 
     
 
-    createUser(email, password)
+    createUser(email, password, photoURL)
       .then(result => {
         const user = result.user;
         console.log(user);
