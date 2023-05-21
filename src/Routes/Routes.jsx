@@ -53,12 +53,12 @@ const router = createBrowserRouter([
             },
             {
                 path: 'addtoy',
-                element: <AddToy></AddToy>
+                element: <PrivateRoute><AddToy></AddToy></PrivateRoute>
             },
             {
                 path: 'updatetoy/:id',
                 element: <UpdateToy></UpdateToy>,
-                loader: ({params}) => fetch(`http://localhost:5000/addtoys/${params.id}`)
+                loader: ({params}) => fetch(`https://assignment-11-server-side-gray.vercel.app/addtoys/${params.id}`)
             },
             {
                 path: 'alltoys',

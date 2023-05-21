@@ -2,15 +2,16 @@ import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
 import { Rating } from '@smastrom/react-rating'
+import useSetTitle from '../../hooks/useSetTitle';
 
 const ToysDetails = () => {
   const { id } = useParams();
   const [toyInfo, setToyInfo] = useState(null);
   const Navigate = useNavigate();
-  console.log(toyInfo);
+ useSetTitle('Toys Details')
   useEffect(() => {
 
-    fetch(`http://localhost:5000/toysshop/${id}`)
+    fetch(`https://assignment-11-server-side-gray.vercel.app/toysshop/${id}`)
       .then(res => res.json())
       .then(data => setToyInfo(data))
 

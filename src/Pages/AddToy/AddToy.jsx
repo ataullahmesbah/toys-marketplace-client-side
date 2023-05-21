@@ -3,11 +3,13 @@ import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from 'sweetalert2'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import useSetTitle from "../../hooks/useSetTitle";
 
 
 
 const AddToy = () => {
   const { user } = useContext(AuthContext);
+  useSetTitle('Add Toy')
 
   useEffect(() => {
     AOS.init({
@@ -39,7 +41,7 @@ const AddToy = () => {
     console.log(addToys);
 
     // send to data server
-    fetch('http://localhost:5000/addtoys', {
+    fetch('https://assignment-11-server-side-gray.vercel.app/addtoys', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'

@@ -1,25 +1,29 @@
 import { useEffect, useState } from "react";
 import AllToysDetails from "../AllToyDetails/AllToysDetails";
+import useSetTitle from "../../hooks/useSetTitle";
 
 
 const AllToys = () => {
     const [allToys, setAllToys] = useState([]);
     const [searchName, setSearchName] = useState("");
+    useSetTitle('All Toys')
 
     useEffect(() => {
-        fetch('http://localhost:5000/addtoys')
+        fetch('https://assignment-11-server-side-gray.vercel.app/addtoys')
             .then(res => res.json())
             .then(data => setAllToys(data));
     }, [])
 
     const handleSearch = () => {
-        fetch(`http://localhost:5000/toySearchByTitle/${searchName}`)
+        fetch(`https://assignment-11-server-side-gray.vercel.app/toySearchByTitle/${searchName}`)
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
                 setAllToys(data);
             });
     };
+
+    
 
     return (
         <div>

@@ -1,6 +1,8 @@
+import useSetTitle from "../../hooks/useSetTitle";
 
 
 const AboutUs = () => {
+    useSetTitle('About')
     return (
         <div>
             <section className="">

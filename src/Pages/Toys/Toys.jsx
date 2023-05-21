@@ -21,7 +21,7 @@ const ToysShop = () => {
       }, []);
 
     useEffect(() => {
-        fetch('http://localhost:5000/toysshop')
+        fetch('https://assignment-11-server-side-gray.vercel.app/toysshop')
             .then((res) => res.json())
             .then((data) => setToys(data));
     }, []);

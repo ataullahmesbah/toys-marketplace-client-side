@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
+import useSetTitle from "../../hooks/useSetTitle";
 
 
 const Login = () => {
@@ -8,6 +9,7 @@ const Login = () => {
     const { signIn, googleSignIn } = useContext(AuthContext);
     const [error, setError] = useState(null);
     const location = useLocation();
+    useSetTitle('Login');
 
     const from = location.state?.from?.pathName || '/';
     const navigate = useNavigate();
@@ -20,24 +22,24 @@ const Login = () => {
         const password = form.password.value;
         console.log(email, password);
         form.reset();
-        
+
 
         signIn(email, password)
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                navigate(from, {replace: true})
+                navigate(from, { replace: true })
 
             })
             .catch(error => console.log(error));
-            setError('Invalid email or password. Please enter your valid email or password')
+        setError('Invalid email or password. Please enter your valid email or password')
     }
 
     const handleGoogleSignIn = () => {
         googleSignIn()
             .then(result => {
                 console.log(result.user);
-                navigate(from, {replace: true})
+                navigate(from, { replace: true })
             })
             .catch(error => console.log(error))
     }
@@ -50,7 +52,7 @@ const Login = () => {
                 {error && (
                     <div className="bg-yellow-100 border-2 border-red-400 text-red-700 px-4 py-3 rounded relative mb-4 mt-4" role='alert'>
                         <h5 className='text-bold font-medium'>VALIDATION ERROR:</h5>
-                         The password does not match the user account or the account does not exist. Please verify both the user name and password and try again.
+                        The password does not match the user account or the account does not exist. Please verify both the user name and password and try again.
                     </div>
                 )}
 

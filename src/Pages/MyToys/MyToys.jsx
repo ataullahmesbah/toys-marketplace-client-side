@@ -4,13 +4,15 @@ import { AuthContext } from '../../Providers/AuthProvider';
 import MyToysDetails from '../MyToysDetails/MyToysDetails';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import useSetTitle from '../../hooks/useSetTitle';
 
 const MyToys = () => {
  
     const { user } = useContext(AuthContext);
     const [myToys, setMyToys] = useState([]);
+    useSetTitle('My Toys')
 
-    const url = `http://localhost:5000/addtoys?email=${user?.email}`;
+    const url = `https://assignment-11-server-side-gray.vercel.app/addtoys?email=${user?.email}`;
 
 
     useEffect(() => {
@@ -42,7 +44,7 @@ const MyToys = () => {
                       }).then((result) => {
                         if (result.isConfirmed) {
                         
-                            fetch(`http://localhost:5000/addtoys/${id}`, {
+                            fetch(`https://assignment-11-server-side-gray.vercel.app/addtoys/${id}`, {
                                 method: 'DELETE',
                             })
                             .then(res => res.json())
