@@ -4,19 +4,17 @@ import { useParams } from 'react-router-dom';
 const ToysDetails = () => {
   const { id } = useParams();
   const [toyInfo, setToyInfo] = useState(null);
-
+console.log(toyInfo);
   useEffect(() => {
-    const fetchToyDetails = async () => {
-      try {
-        const response = await fetch(`http://localhost:5000/toysshop/${id}`);
-        const data = await response.json();
-        setToyInfo(data);
-      } catch (error) {
-        console.error('Error fetching toy details:', error);
-      }
-    };
 
-    fetchToyDetails();
+    fetch(`http://localhost:5000/toysshop/${id}`)
+    .then(res => res.json())
+    .then(data => setToyInfo(data))
+    
+    .catch(error => {
+      console.error('Error fetching toy details:', error);
+    })
+      
   }, [id]);
 
   if (!toyInfo) {

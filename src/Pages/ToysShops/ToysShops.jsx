@@ -27,6 +27,7 @@ const ToysShops = ({ toy }) => {
                         <button className="btn btn-sm btn-outline btn-accent ">View Details</button>
                     </Link>
                 </div>
+
             </div>
 
 
