@@ -28,6 +28,8 @@ const ToysDetails = () => {
   return (
     <div className='py-10'>
 
+      
+
       <div className="justify-center items-center p-10">
 
         <img className='mx-auto w-96 h-96 rounded-lg' src={toyInfo.image} />

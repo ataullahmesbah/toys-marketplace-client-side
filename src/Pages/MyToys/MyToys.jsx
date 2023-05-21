@@ -5,12 +5,14 @@ import MyToysDetails from '../MyToysDetails/MyToysDetails';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import useSetTitle from '../../hooks/useSetTitle';
+import { useNavigate } from 'react-router-dom';
 
 const MyToys = () => {
  
     const { user } = useContext(AuthContext);
     const [myToys, setMyToys] = useState([]);
     useSetTitle('My Toys')
+    const navigate = useNavigate();
 
     const url = `https://assignment-11-server-side-gray.vercel.app/addtoys?email=${user?.email}`;
 
@@ -28,7 +30,7 @@ const MyToys = () => {
         fetch(url)
         .then(res => res.json())
         .then(data => setMyToys(data))
-    }, [])
+    }, [navigate])
 
     const handleDelete = id => {
         

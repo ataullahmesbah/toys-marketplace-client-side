@@ -11,7 +11,7 @@ const Login = () => {
     const location = useLocation();
     useSetTitle('Login');
 
-    const from = location.state?.from?.pathName || '/';
+    const from = location.state?.from?.pathname || '/';
     const navigate = useNavigate();
 
     const handleLogIn = event => {

@@ -43,9 +43,8 @@ const Navbar = () => {
 
         {user?.email ? (
           <>
-            <Link className="text-gray-800 font-bold px-3 py-2 rounded-md hover:bg-gray-700" to="/mytoys">My Toys</Link> 
-            <Link className="text-gray-800 font-bold px-3 py-2 rounded-md hover:bg-gray-700" to="/alltoys">All Toys</Link> 
-            
+            <Link className="text-gray-800 font-bold px-3 py-2 rounded-md hover:bg-gray-700" to="/mytoys">My Toys</Link>
+            <Link className="text-gray-800 font-bold px-3 py-2 rounded-md hover:bg-gray-700" to="/alltoys">All Toys</Link>
             <Link className="text-gray-800 font-bold px-3 py-2 rounded-md hover:bg-gray-700" to="/addtoy">Add Toys</Link>
 
             {user?.photoURL ? (
@@ -58,11 +57,12 @@ const Navbar = () => {
               </div>
             )}
 
-            <Link to='/'><button className="font-bold" onClick={handleLogOut}>Log Out</button></Link>
+            <button className="font-bold" onClick={handleLogOut}>Log Out</button>
           </>
         ) : (
           <Link className="font-bold" to="/login">Login</Link>
         )}
+
 
 
 
@@ -105,28 +105,28 @@ const Navbar = () => {
 
 
           {user?.email ? (
-          <>
-            <Link className="block font-bold text-white py-2 hover:bg-gray-700" to="/mytoys">My Toys</Link> 
-            
-            <Link className="block font-bold text-white py-2 hover:bg-gray-700" to="/alltoys">All Toys</Link> 
-            
-            <Link className="block font-bold text-white py-2 hover:bg-gray-700" to="/addtoy">Add Toys</Link>
+            <>
+              <Link className="block font-bold text-white py-2 hover:bg-gray-700" to="/mytoys">My Toys</Link>
 
-            {user?.photoURL ? (
-              <div>
-                <img className="w-12 rounded-full" src={user.photoURL} alt="" />
-              </div>
-            ) : (
-              <div>
-                <img className="w-12 rounded-full" src="/default-profile-image.jpg" alt="Default Profile" />
-              </div>
-            )}
+              <Link className="block font-bold text-white py-2 hover:bg-gray-700" to="/alltoys">All Toys</Link>
 
-            <Link to='/'><button className="block font-bold text-white py-2 hover:bg-gray-700" onClick={handleLogOut}>Log Out</button></Link>
-          </>
-        ) : (
-          <Link className="block font-bold text-white py-2 hover:bg-gray-700" to="/login">Login</Link>
-        )}
+              <Link className="block font-bold text-white py-2 hover:bg-gray-700" to="/addtoy">Add Toys</Link>
+
+              {user?.photoURL ? (
+                <div>
+                  <img className="w-12 rounded-full" src={user.photoURL} alt="" />
+                </div>
+              ) : (
+                <div>
+                  <img className="w-12 rounded-full" src="/default-profile-image.jpg" alt="Default Profile" />
+                </div>
+              )}
+
+              <Link to='/'><button className="block font-bold text-white py-2 hover:bg-gray-700" onClick={handleLogOut}>Log Out</button></Link>
+            </>
+          ) : (
+            <Link className="block font-bold text-white py-2 hover:bg-gray-700" to="/login">Login</Link>
+          )}
 
 
         </div>

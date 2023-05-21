@@ -1,12 +1,20 @@
 import { Rating } from '@smastrom/react-rating'
 import '@smastrom/react-rating/style.css'
 import { Link } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const ToysShops = ({ toy }) => {
     console.log(toy);
 
     const { _id, image, name, rating, price } = toy;
     console.log(_id);
+
+    const handleClick = () => {
+        toast('View Details clicked!');
+      };
+      
 
     return (
         <div className="lg:flex space-x-4 justify-center items-center ">
@@ -24,18 +32,16 @@ const ToysShops = ({ toy }) => {
 
                 <div className="pt-2">
                     <Link to={`/toysdetails/${_id}`}>
-                        <button className="btn btn-sm btn-outline btn-accent ">View Details</button>
+                        <button className="btn btn-sm btn-outline btn-accent" onClick={handleClick} >View Details
+                        
+                        </button>
                     </Link>
                 </div>
-
+                <ToastContainer />
             </div>
-
-
-
-
-
-
+            
         </div>
+        
     );
 };
 
