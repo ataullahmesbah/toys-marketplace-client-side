@@ -43,10 +43,10 @@ const Navbar = () => {
 
         {user?.email ? (
           <>
-            <Link className="font-bold" to="/mytoys">My Toys</Link> 
-            <Link className="font-bold" to="/alltoys">All Toys</Link> 
+            <Link className="text-gray-800 font-bold px-3 py-2 rounded-md hover:bg-gray-700" to="/mytoys">My Toys</Link> 
+            <Link className="text-gray-800 font-bold px-3 py-2 rounded-md hover:bg-gray-700" to="/alltoys">All Toys</Link> 
             
-            <Link className="font-bold" to="/addtoy">Add Toys</Link>
+            <Link className="text-gray-800 font-bold px-3 py-2 rounded-md hover:bg-gray-700" to="/addtoy">Add Toys</Link>
 
             {user?.photoURL ? (
               <div>

@@ -23,7 +23,7 @@ const ToysShops = ({ toy }) => {
                 </div>
 
                 <div className="pt-2">
-                    <Link to={`/toysdetails/${toy._id}`}>
+                    <Link to={`/toysdetails/${_id}`}>
                         <button className="btn btn-sm btn-outline btn-accent ">View Details</button>
                     </Link>
                 </div>
