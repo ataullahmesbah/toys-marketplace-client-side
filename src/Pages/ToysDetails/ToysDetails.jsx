@@ -1,20 +1,22 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
+import { Rating } from '@smastrom/react-rating'
+
 const ToysDetails = () => {
   const { id } = useParams();
   const [toyInfo, setToyInfo] = useState(null);
-console.log(toyInfo);
+  console.log(toyInfo);
   useEffect(() => {
 
     fetch(`http://localhost:5000/toysshop/${id}`)
-    .then(res => res.json())
-    .then(data => setToyInfo(data))
-    
-    .catch(error => {
-      console.error('Error fetching toy details:', error);
-    })
-      
+      .then(res => res.json())
+      .then(data => setToyInfo(data))
+
+      .catch(error => {
+        console.error('Error fetching toy details:', error);
+      })
+
   }, [id]);
 
   if (!toyInfo) {
@@ -22,12 +24,24 @@ console.log(toyInfo);
   }
 
   return (
-    <div>
-      <h2>{toyInfo.name}</h2>
-      <p>Price: ${toyInfo.price}</p>
-      <p>Rating: {toyInfo.rating}</p>
-      <img src={toyInfo.image} alt={toyInfo.name} />
-      <p>{toyInfo.details}</p>
+    <div className='py-10'>
+
+      <div className="justify-center items-center p-10">
+
+        <img className='mx-auto w-96 h-96 rounded-lg' src={toyInfo.image} />
+      </div>
+      <div className=" mx-10 border p-10 rounded-lg bg-gray-200">
+        <div className="space-y-3">
+        <h2><span className='text-xl font-semibold font-serif'>Toy Name:</span> <span className='font-medium'>{toyInfo.name}</span></h2>
+        <p><span className='text-xl font-semibold font-serif'>Price:</span> <span className='text-orange-600 font-medium'>${toyInfo.price}</span></p>
+        <div className="flex items-center">
+          <span className='font-medium    '>Rating:</span>
+          <Rating className='ms-2' style={{ maxWidth: 100 }} value={toyInfo.rating} readOnly />
+          <span className='ms-2'>{toyInfo.rating}</span>
+        </div>
+        <p><span className='text-xl font-semibold font-serif'>Description: </span>{toyInfo.details}</p>
+        </div>
+      </div>
     </div>
   );
 };
