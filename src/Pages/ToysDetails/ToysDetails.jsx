@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 import { Rating } from '@smastrom/react-rating'
 
 const ToysDetails = () => {
   const { id } = useParams();
   const [toyInfo, setToyInfo] = useState(null);
+  const Navigate = useNavigate();
   console.log(toyInfo);
   useEffect(() => {
 
@@ -17,7 +18,7 @@ const ToysDetails = () => {
         console.error('Error fetching toy details:', error);
       })
 
-  }, [id]);
+  }, [id, Navigate]);
 
   if (!toyInfo) {
     return <div>Loading...</div>;

@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import ToyDetailsInfo from "../ToyDetailsInfo";
 
 
 const AllToysInformation = () => {
     const { id } = useParams();
     const [toyDetails, setToyDetails] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchToyDetails = async () => {
@@ -19,7 +20,7 @@ const AllToysInformation = () => {
         };
 
         fetchToyDetails();
-    }, [id]);
+    }, [id, navigate]);
 
     return (
         <div className="">
